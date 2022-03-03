@@ -39,6 +39,17 @@ fi
 
 Password=$1
 
+
+#check if the option "-f" is added
+while getopts f: flag; 
+do
+  case "${flag}" in                     
+    f)  Password=`cat ${OPTARG}`;;
+    esac
+done
+
+
+
 checkLen "${#Password}"
 checkNum
 checkSmallLetter
